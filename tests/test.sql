@@ -1,0 +1,15 @@
+INSERT INTO ACT (actid, actname, genre, standardfee) VALUES(1,'Playman Cartier','Music',29000);
+INSERT INTO ACT (actid, actname, genre, standardfee) VALUES(2,'Tervis Scoot','Pop',23000);
+INSERT INTO ACT (actid, actname, genre, standardfee) VALUES(3,'Small Submachinegun Green','Music',21000);
+INSERT INTO VENUE (venueid, venuename, hirecost, capacity) VALUES (1,'Big Hall',15000,1);
+INSERT INTO VENUE (venueid, venuename, hirecost, capacity) VALUES (2,'Arts Centre Theatre',15000,17);
+INSERT INTO GIG (gigid, venueid, gigtitle, gigdatetime, gigstatus) VALUES (1,1,'Test title','2018-12-11 23:30','GoingAhead');
+INSERT INTO GIG (gigid, venueid, gigtitle, gigdatetime, gigstatus) VALUES (2,2,'Test title','2018-12-11 22:00','GoingAhead');
+INSERT INTO ACT_GIG (actid, gigid, actgigfee, ontime, duration) VALUES(3,1,30000,'2018-12-11 23:30',90);
+INSERT INTO ACT_GIG (actid, gigid, actgigfee, ontime, duration) VALUES(2,2,30000,'2018-12-11 22:00',60);
+INSERT INTO GIG_TICKET (gigid, pricetype, price) VALUES(1,'A',40);
+INSERT INTO GIG_TICKET (gigid, pricetype, price) VALUES(1,'B',40);
+INSERT INTO TICKET (ticketid,gigid,CustomerName,CustomerEmail,pricetype,cost) VALUES (DEFAULT,1,'c2 c2','c22cc@example.com','A',40);
+-- INSERT INTO TICKET (ticketid,gigid,CustomerName,CustomerEmail,pricetype,cost) VALUES (DEFAULT,1,'a0 a0','a00aa@example.com','A',40);
+UPDATE gig_ticket SET pricetype = 'C' WHERE pricetype = 'A';
+DELETE FROM gig_ticket WHERE pricetype = 'A';

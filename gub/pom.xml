@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>uk.ac.warwick.cs258</groupId>
+    <artifactId>CS258-Coursework</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+     	<maven.compiler.source>11</maven.compiler.source>
+	<maven.compiler.target>11</maven.compiler.target>
+
+    </properties>
+
+	<dependencies>
+<dependency>
+  <groupId>com.kohlschutter.junixsocket</groupId>
+  <artifactId>junixsocket-core</artifactId>
+  <version>2.4.0</version>
+  <type>pom</type>
+</dependency>
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.2.23</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+<dependency>
+    <groupId>com.opencsv</groupId>
+    <artifactId>opencsv</artifactId>
+    <version>5.5</version>
+</dependency>
+
+
+    </dependencies>
+
+	<build>
+        <sourceDirectory>${pom.basedir}/src/main/java</sourceDirectory>
+
+        <finalName>CS258-Coursework</finalName>
+
+        <plugins>
+	<plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.0.0</version>
+            <executions>
+                <execution>
+                    <id>gig</id>
+                    <configuration>
+                        <mainClass>GigSystem</mainClass>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>test</id>
+                    <configuration>
+                        <mainClass>GigTester</mainClass>
+                    </configuration>
+                </execution>
+            </executions>
+
+        </plugin>
+		</plugins>
+    </build>
+
+</project>
